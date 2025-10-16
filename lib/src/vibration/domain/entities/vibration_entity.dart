@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class VibrationEntity extends Equatable {
-  final int duration; // in seconds
+  final int duration; // in milliseconds
   final int strength; // 1 to 5 scale
 
   const VibrationEntity({

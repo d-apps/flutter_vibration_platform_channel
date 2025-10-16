@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_vibration_platform_channel/src/vibration/domain/entities/vibration_entity.dart';
 
@@ -10,16 +9,16 @@ class VibrationService implements IVibrationService {
   final MethodChannel _methodChannel;
 
   VibrationService({required MethodChannel methodChannel})
-      : _methodChannel = methodChannel;
+    : _methodChannel = methodChannel;
 
   @override
   Future<void> vibrate(VibrationEntity vibration) async {
-    try{
+    try {
       await _methodChannel.invokeMethod('vibrate', {
         'duration': vibration.duration,
         'strength': vibration.strength,
       });
-    } catch(e){
+    } catch (e) {
       throw Exception(e.toString());
     }
   }

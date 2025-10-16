@@ -5,9 +5,15 @@
 This project serves as a study environment and practical laboratory to explore advanced concepts in 
 Flutter development. The topics covered include:
 
+### TDD (Test-Driven Development):
+
+Adoption of TDD practices to ensure code quality and reliability. The development process will 
+begin with writing tests that define the desired functionality, followed by implementing the code 
+to pass those tests.
+
 ### Unit and Integration Tests:
 
-Implementation of robust test coverage. Unit tests will be created to validate the business logic 
+Unit tests will be created to validate the business logic 
 in isolation, and integration tests will be created to ensure that the different system modules 
 function correctly together.
 

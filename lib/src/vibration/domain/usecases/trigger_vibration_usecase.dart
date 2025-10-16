@@ -10,8 +10,9 @@ abstract class ITriggerVibrationUseCase {
 class TriggerVibrationUseCase implements ITriggerVibrationUseCase {
   final IVibrationService _service;
 
-  TriggerVibrationUseCase({ required IVibrationService service })
-    : _service = service;
+  TriggerVibrationUseCase({
+    required IVibrationService service
+  }) : _service = service;
 
   @override
   Future<Either<Exception, void>> call(VibrationEntity vibration) async {
