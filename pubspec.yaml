@@ -37,6 +37,7 @@ dependencies:
   equatable:
   mocktail:
   dartz:
+  flutter_bloc:   
 
 dev_dependencies:
   flutter_test:

@@ -16,7 +16,7 @@ class VibrationService implements IVibrationService {
     try {
       await _methodChannel.invokeMethod('vibrate', {
         'duration': vibration.duration,
-        'strength': vibration.strength,
+        'strength': vibration.amplitude,
       });
     } catch (e) {
       throw Exception(e.toString());

@@ -18,7 +18,7 @@ void main(){
   });
 
   test('should call the service with correct object', () async {
-    final vibration = VibrationEntity(duration: 1, strength: 1);
+    final vibration = VibrationEntity(duration: 1, amplitude: 1);
     when(() => service.vibrate(vibration)).thenAnswer((_) async => Null);
     final result = await sut(vibration);
     expect(result.isRight(), true);
@@ -26,7 +26,7 @@ void main(){
   });
 
   test('should return an exception if the service throws', () async {
-    final vibration = VibrationEntity(duration: 1, strength: 1);
+    final vibration = VibrationEntity(duration: 1, amplitude: 1);
     when(() => service.vibrate(vibration)).thenThrow(Exception('Service error'));
     final result = await sut(vibration);
     expect(result.isLeft(), true);

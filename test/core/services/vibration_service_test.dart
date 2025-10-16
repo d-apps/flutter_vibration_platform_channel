@@ -26,13 +26,13 @@ void main() {
       when(() => methodChannel.invokeMethod(any(), any()))
           .thenAnswer((_) async {});
 
-      final vibration = VibrationEntity(duration: 1, strength: 1);
+      final vibration = VibrationEntity(duration: 1, amplitude: 1);
       await sut.vibrate(vibration);
 
       const method = 'vibrate';
       final data = {
         'duration': vibration.duration,
-        'strength': vibration.strength,
+        'strength': vibration.amplitude,
       };
 
       verify(() => methodChannel.invokeMethod(method, data)).called(1);
@@ -47,7 +47,7 @@ void main() {
       when(() => methodChannel.invokeMethod(any(), any()))
           .thenThrow(PlatformException(code: 'ERROR', message: 'Failed to vibrate'));
 
-      final vibration = VibrationEntity(duration: 1, strength: 1);
+      final vibration = VibrationEntity(duration: 1, amplitude: 1);
 
       expect(
         () => sut.vibrate(vibration),

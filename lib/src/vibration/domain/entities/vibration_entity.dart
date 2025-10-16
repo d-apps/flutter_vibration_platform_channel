@@ -2,13 +2,23 @@ import 'package:equatable/equatable.dart';
 
 class VibrationEntity extends Equatable {
   final int duration; // in milliseconds
-  final int strength; // 1 to 5 scale
+  final int amplitude; // 1-255
 
   const VibrationEntity({
     required this.duration,
-    required this.strength,
+    required this.amplitude,
   });
 
   @override
-  List<Object?> get props => [duration, strength];
+  List<Object?> get props => [duration, amplitude];
+
+  VibrationEntity copyWith({
+    int? duration,
+    int? amplitude,
+  }) {
+    return VibrationEntity(
+      duration: duration ?? this.duration,
+      amplitude: amplitude ?? this.amplitude,
+    );
+  }
 }
