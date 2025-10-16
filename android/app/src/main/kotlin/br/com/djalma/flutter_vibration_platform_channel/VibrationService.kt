@@ -1,4 +1,4 @@
-package com.example.flutter_vibration_platform_channel
+package br.com.djalma.flutter_vibration_platform_channel
 
 import android.content.Context
 import android.os.VibrationEffect
