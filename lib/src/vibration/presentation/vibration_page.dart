@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vibration_platform_channel/src/vibration/presentation/home_presenter.dart';
+import 'package:flutter_vibration_platform_channel/src/vibration/presentation/vibration_presenter.dart';
 
-class HomePage extends StatelessWidget {
-  final HomePresenter presenter;
+class VibrationPage extends StatelessWidget {
+  final VibrationPresenter presenter;
 
-  const HomePage({ required this.presenter, super.key});
+  const VibrationPage({ required this.presenter, super.key});
 
   @override
   Widget build(BuildContext context) {
