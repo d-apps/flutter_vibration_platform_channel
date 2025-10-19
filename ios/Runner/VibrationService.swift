@@ -2,7 +2,7 @@ import UIKit
 import AudioToolbox
 
 class VibrationService {
-    func triggerVibration(durationMs: Int, amplitude: Int) {
+    func triggerVibration(amplitude: Int) {
         // O iOS não permite controle direto de amplitude/duração como o Android.
         // Vamos simular a vibração usando os padrões disponíveis.
 

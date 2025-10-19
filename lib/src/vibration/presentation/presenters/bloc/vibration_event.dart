@@ -5,11 +5,6 @@ abstract class VibrationEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-final class UpdateDurationEvent extends VibrationEvent {
-  final int duration;
-  UpdateDurationEvent(this.duration);
-}
-
 final class UpdateAmplitudeEvent extends VibrationEvent {
   final int amplitude;
   UpdateAmplitudeEvent(this.amplitude);

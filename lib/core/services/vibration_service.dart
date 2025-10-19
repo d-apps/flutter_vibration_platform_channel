@@ -1,8 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:flutter_vibration_platform_channel/src/vibration/domain/entities/vibration_entity.dart';
 
 abstract class IVibrationService {
-  Future<void> vibrate(VibrationEntity vibration);
+  Future<void> vibrate(int amplitude);
 }
 
 class VibrationService implements IVibrationService {
@@ -12,11 +11,10 @@ class VibrationService implements IVibrationService {
     : _methodChannel = methodChannel;
 
   @override
-  Future<void> vibrate(VibrationEntity vibration) async {
+  Future<void> vibrate(int amplitude) async {
     try {
       await _methodChannel.invokeMethod('vibrate', {
-        'duration': vibration.duration,
-        'strength': vibration.amplitude,
+        'amplitude': amplitude,
       });
     } catch (e) {
       throw Exception(e.toString());

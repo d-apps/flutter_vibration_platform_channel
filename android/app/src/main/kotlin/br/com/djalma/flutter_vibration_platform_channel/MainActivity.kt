@@ -20,7 +20,6 @@ class MainActivity : FlutterActivity() {
             .setMethodCallHandler { call, result ->
                 when (call.method) {
                     "vibrate" -> {
-                        val duration = call.argument<Int>("duration") ?: 500
                         val amplitude = call.argument<Int>("amplitude") ?: 128
                         vibrationService.triggerVibration(duration.toLong(), amplitude)
                         result.success("Vibration triggered")

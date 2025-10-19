@@ -31,9 +31,8 @@ import Flutter
       switch call.method {
       case "vibrate":
         if let args = call.arguments as? [String: Any] {
-          let duration = args["duration"] as? Int ?? 500
           let amplitude = args["amplitude"] as? Int ?? 128
-          vibrationService.triggerVibration(durationMs: duration, amplitude: amplitude)
+          vibrationService.triggerVibration(amplitude: amplitude)
           result("Vibration triggered")
         } else {
           result(FlutterError(code: "INVALID_ARGUMENTS", message: "Missing args", details: nil))

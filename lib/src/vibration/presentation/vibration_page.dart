@@ -9,10 +9,33 @@ class VibrationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'Testing Native Vibration...',
-          style: TextStyle(fontSize: 20),
+      appBar: AppBar(
+        title: const Text('Vibration Page'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Amplitude (0 - 255)"),
+              StreamBuilder<int>(
+                stream: presenter.amplitudeStream,
+                builder: (context, snapshot) {
+                  final amplitude = snapshot.data ?? 0 ;
+                  return Slider(
+                    value: amplitude.toDouble(),
+                    min: 0,
+                    max: 255,
+                    onChanged: (value) {
+                      print(value.toInt());
+                      presenter.updateAmplitude(value.toInt());
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
