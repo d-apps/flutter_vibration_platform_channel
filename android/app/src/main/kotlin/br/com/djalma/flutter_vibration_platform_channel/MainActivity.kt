@@ -21,7 +21,7 @@ class MainActivity : FlutterActivity() {
                 when (call.method) {
                     "vibrate" -> {
                         val amplitude = call.argument<Int>("amplitude") ?: 128
-                        vibrationService.triggerVibration(duration.toLong(), amplitude)
+                        vibrationService.triggerVibration(amplitude)
                         result.success("Vibration triggered")
                     }
                     else -> result.notImplemented()

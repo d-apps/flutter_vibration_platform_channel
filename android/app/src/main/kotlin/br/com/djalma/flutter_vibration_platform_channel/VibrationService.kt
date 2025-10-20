@@ -5,16 +5,20 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.Build
 class VibrationService(private val context: Context) {
+
     fun triggerVibration(amplitude: Int) {
+
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        val safeAmplitude = amplitude.coerceIn(1, 255) // Evita valores inválidos
+        val duration = 600000L // duração em milissegundos (10 minutos)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val safeAmplitude = amplitude.coerceIn(1, 255) // Evita valores inválidos
-            val effect = VibrationEffect.createOneShot(60000, safeAmplitude)
+            val effect = VibrationEffect.createOneShot(duration, safeAmplitude)
             vibrator.vibrate(effect)
         } else {
             @Suppress("DEPRECATION")
-            vibrator.vibrate(durationMs)
+            vibrator.vibrate(duration)
         }
     }
+
 }
