@@ -2,8 +2,20 @@
 
 ## Project Overview
 
-This project serves as a study environment and practical laboratory to explore advanced concepts in 
-Flutter development. The topics covered include:
+This simple project serves as a study to explore some advanced concepts in
+Flutter development.
+
+The topics covered include:
+
+- Unit and Integration Testing
+- State Management with BLoC and Cubit Implementation
+- Clean Architecture
+- Native Android and iOS Code integration using MethodChannel
+
+## Diagrams
+
+![Main Flow](https://raw.githubusercontent.com/d-apps/flutter_vibration_platform_channel/refs/heads/main/docs/Main%20Flow.drawio.png)
+![Presenter](https://raw.githubusercontent.com/d-apps/flutter_vibration_platform_channel/refs/heads/main/docs/Presenter.drawio.png)
 
 ### Unit Tests and Integration Tests:
 
@@ -14,17 +26,17 @@ function correctly together.
 Commands to run the tests (I used FVM - Flutter Version Management, so it was necessary to use the
 `fvm` command before `flutter`):
 
-fvm flutter test
+`fvm flutter test`
 
-fvm flutter test integration_test/app_test.dart
+`fvm flutter test integration_test/app_test.dart`
 
 ### State Management with BLoC and Cubit Implementation:
 
-There is an interface called VibrationPresenter that defines the contract for vibration-related
+There is an interface called `VibrationPresenter` that defines the contract for vibration-related
 operations. 
 
-There are to implementations of this interface: VibrationCubitPresenter 
-and VibrationBlocPresenter.
+There are to implementations of this interface: `VibrationCubitPresenter`
+and `VibrationBlocPresenter`.
 
 Using the interface we protect our page from changes in the implementation of the state management,
 making it easier to switch between Cubit and BLoC or any other state manager.
@@ -38,5 +50,5 @@ ensuring that dependencies flow towards the center of the application.
 ### Native Android and iOS Code (MethodChannel):
 
 Exploration of communication between Flutter and the native 
-platforms (Android and iOS) through MethodChannel. This will allow access to specific APIs and 
+platforms (Android and iOS) through `MethodChannel`. This will allow access to specific APIs and 
 resources of each operating system, such as device vibration control, which gives the project its name.
