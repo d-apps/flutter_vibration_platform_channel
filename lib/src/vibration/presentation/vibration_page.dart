@@ -18,19 +18,24 @@ class VibrationPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Amplitude (0 - 255)"),
+              Text("Amplitude"),
               StreamBuilder<int>(
                 stream: presenter.amplitudeStream,
                 builder: (context, snapshot) {
                   final amplitude = snapshot.data ?? 0 ;
-                  return Slider(
-                    value: amplitude.toDouble(),
-                    min: 0,
-                    max: 255,
-                    onChanged: (value) {
-                      print(value.toInt());
-                      presenter.updateAmplitude(value.toInt());
-                    },
+                  return Column(
+                    children: [
+                      Slider(
+                        value: amplitude.toDouble(),
+                        min: 0,
+                        max: 255,
+                        onChanged: (value) {
+                          print(value.toInt());
+                          presenter.updateAmplitude(value.toInt());
+                        },
+                      ),
+                      Text("$amplitude"),
+                    ],
                   );
                 },
               ),
